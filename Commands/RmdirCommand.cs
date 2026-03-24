@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IDirectoryService _dirService;
         public RmdirCommand(IDirectoryService dirService) => _dirService = dirService;
 
+        public string Name => "rmdir";
+        public string Description => "Deletes a directory";
+        public string Usage => "rmdir <foldername>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length == 0) { Console.WriteLine("Usage: rmdir <foldername>"); return; }

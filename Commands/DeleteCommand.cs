@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IFileService _fileService;
         public DeleteCommand(IFileService fileService) => _fileService = fileService;
 
+        public string Name => "delete";
+        public string Description => "Deletes a file";
+        public string Usage => "delete <filename>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length == 0) { Console.WriteLine("Usage: delete <filename>"); return; }

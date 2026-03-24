@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IFileService _fileService;
         public MoveCommand(IFileService fileService) => _fileService = fileService;
 
+        public string Name => "move";
+        public string Description => "Moves a file";
+        public string Usage => "move <source> <destination>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length < 2) { Console.WriteLine("Usage: move <source> <destination>"); return; }

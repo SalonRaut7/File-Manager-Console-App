@@ -8,10 +8,13 @@ namespace FileManagerCLI.Commands
     {
         private readonly IFileService _fileService;
         public AppendCommand(IFileService fileService) => _fileService = fileService;
+        public string Name => "append";
+        public string Description => "Append content to a file";
+        public string Usage => "append <filename> <content>";
 
         public void Execute(string[] args, ref string currentDirectory)
         {
-            if (args.Length < 2) { Console.WriteLine("Usage: append <filename> <content>"); return; }
+            if (args.Length < 2) { Console.WriteLine($"Usage: {Usage}"); return; }
 
             string fullPath = Path.IsPathRooted(args[0]) ? args[0] : Path.Combine(currentDirectory, args[0]);
             string content = string.Join(' ', args.Skip(1));

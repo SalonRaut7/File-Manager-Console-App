@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IDirectoryService _dirService;
         public ListCommand(IDirectoryService dirService) => _dirService = dirService;
 
+        public string Name => "list";
+        public string Description => "Lists directory contents";
+        public string Usage => "list [path]";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             string path = args.Length > 0 ? (Path.IsPathRooted(args[0]) ? args[0] : Path.Combine(currentDirectory, args[0])) : currentDirectory;

@@ -6,12 +6,15 @@ namespace FileManagerCLI.Commands
 {
     public class WriteCommand : ICommand
     {
+        public string Name => "write";
+        public string Description => "Write content to a file";
+        public string Usage => "write <filename> <content>";
         private readonly IFileService _fileService;
         public WriteCommand(IFileService fileService) => _fileService = fileService;
 
         public void Execute(string[] args, ref string currentDirectory)
         {
-            if (args.Length < 2) { Console.WriteLine("Usage: write <filename> <content>"); return; }
+            if (args.Length < 2) { Console.WriteLine($"Usage: {Usage}"); return; }
 
             string fullPath = Path.IsPathRooted(args[0]) ? args[0] : Path.Combine(currentDirectory, args[0]);
             string content = string.Join(' ', args.Skip(1));

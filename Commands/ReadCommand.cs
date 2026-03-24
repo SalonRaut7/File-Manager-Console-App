@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IFileService _fileService;
         public ReadCommand(IFileService fileService) => _fileService = fileService;
 
+        public string Name => "read";
+        public string Description => "Reads file content";
+        public string Usage => "read <filename>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length == 0) { Console.WriteLine("Usage: read <filename>"); return; }

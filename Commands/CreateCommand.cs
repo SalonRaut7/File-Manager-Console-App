@@ -9,9 +9,13 @@ namespace FileManagerCLI.Commands
         private readonly IFileService _fileService;
         public CreateCommand(IFileService fileService) => _fileService = fileService;
 
+        public string Name => "create";
+        public string Description => "Create a new file";
+        public string Usage => "create <filename>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
-            if (args.Length == 0) { Console.WriteLine("Usage: create <filename>"); return; }
+            if (args.Length == 0) { Console.WriteLine($"Usage: {Usage}"); return; }
 
             string fullPath = Path.IsPathRooted(args[0]) ? args[0] : Path.Combine(currentDirectory, args[0]);
             try

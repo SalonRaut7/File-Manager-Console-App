@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IDirectoryService _dirService;
         public MkdirCommand(IDirectoryService dirService) => _dirService = dirService;
 
+        public string Name => "mkdir";
+        public string Description => "Creates a directory";
+        public string Usage => "mkdir <foldername>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length == 0) { Console.WriteLine("Usage: mkdir <foldername>"); return; }

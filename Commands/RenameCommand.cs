@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IFileService _fileService;
         public RenameCommand(IFileService fileService) => _fileService = fileService;
 
+        public string Name => "rename";
+        public string Description => "Renames a file";
+        public string Usage => "rename <oldname> <newname>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length < 2) { Console.WriteLine("Usage: rename <oldname> <newname>"); return; }

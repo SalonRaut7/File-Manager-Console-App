@@ -5,6 +5,10 @@ namespace FileManagerCLI.Commands
 {
     public class CdCommand : ICommand
     {
+        public string Name => "cd";
+        public string Description => "Changes current directory";
+        public string Usage => "cd <path>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length == 0) { Console.WriteLine("Usage: cd <path>"); return; }

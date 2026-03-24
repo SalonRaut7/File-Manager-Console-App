@@ -9,6 +9,10 @@ namespace FileManagerCLI.Commands
         private readonly IFileService _fileService;
         public CopyCommand(IFileService fileService) => _fileService = fileService;
 
+        public string Name => "copy";
+        public string Description => "Copies a file";
+        public string Usage => "copy <source> <destination>";
+
         public void Execute(string[] args, ref string currentDirectory)
         {
             if (args.Length < 2) { Console.WriteLine("Usage: copy <source> <destination>"); return; }
